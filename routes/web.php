@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminDashboard;
+use App\Http\Controllers\PermissionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('Admin/Dashboard',[AdminDashboard::class,'index'])->name('admin.index');
+
+Route::get('index', [PermissionController::class, 'index'])->name('permission.index');
+Route::get('create/permission', [PermissionController::class, 'create'])->name('create.permission');
